@@ -1,0 +1,35 @@
+:root { --cor: #D62828; --tinta: #302728; --fundo: #fffaf4; --suave: #f6e9e5; color-scheme: light; }
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; }
+body { background: var(--cor); color: var(--tinta); font: 17px/1.45 system-ui, sans-serif; -webkit-tap-highlight-color: transparent; }
+.jogo { width: min(600px, 100%); margin: 0 auto; padding: max(14px, env(safe-area-inset-top)) 14px max(24px, env(safe-area-inset-bottom)); display: grid; gap: 14px; }
+.topo, .tela, #painel-placar { background: var(--fundo); border-radius: 20px; padding: 17px; }
+.topo { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.topo h1 { margin: 0; font-size: clamp(1.35rem, 6vw, 1.8rem); letter-spacing: -.04em; }
+.sobretitulo { margin: 0 0 2px; color: #7b6460; font-size: .72rem; font-weight: 800; letter-spacing: .1em; }
+.recorde { margin: 0; text-align: right; font-size: .84rem; color: #705d59; }
+.recorde strong { display: block; color: var(--cor); font-size: 1.25rem; font-variant-numeric: tabular-nums; }
+.tela { display: grid; justify-items: center; gap: 13px; text-align: center; }
+.tela h2 { margin: 0; font-size: 1.35rem; }
+.selo { width: 66px; height: 66px; display: grid; place-items: center; border-radius: 50%; background: var(--suave); font-size: 2rem; }
+.instrucao { max-width: 43ch; margin: 0; color: #584b49; }
+.botao { min-height: 52px; min-width: 190px; padding: 10px 20px; border: 0; border-radius: 14px; background: var(--cor); color: white; font: inherit; font-weight: 800; cursor: pointer; touch-action: manipulation; }
+.botao:focus-visible, .opcao:focus-visible { outline: 4px solid #f0ae3f; outline-offset: 3px; }
+.linha-status { width: 100%; display: flex; justify-content: space-between; gap: 12px; font-weight: 800; }
+.cronometro { color: var(--cor); font-variant-numeric: tabular-nums; }
+.barra-tempo { width: 100%; height: 9px; overflow: hidden; border-radius: 99px; background: #eadbd5; }
+.barra-tempo span { display: block; width: 100%; height: 100%; background: var(--cor); transition: width .1s linear; }
+.pergunta { min-height: 3.2em; display: grid; place-items: center; padding: 3px 0; }
+.alternativas { width: 100%; display: grid; gap: 9px; }
+.opcao { min-height: 52px; padding: 10px 14px; border: 2px solid #eadbd5; border-radius: 13px; background: white; color: var(--tinta); font: inherit; font-weight: 700; text-align: left; cursor: pointer; touch-action: manipulation; }
+.opcao:hover:not(:disabled) { border-color: var(--cor); background: #fff3f0; }
+.opcao:disabled { cursor: default; opacity: .78; }
+.opcao.correta { border-color: #25834f; background: #e9f6ed; opacity: 1; }
+.opcao.errada { border-color: #c73b36; background: #fff0ed; opacity: 1; }
+.feedback { width: 100%; margin: 0; padding: 11px 13px; border-radius: 12px; background: var(--suave); text-align: left; }
+.feedback.acerto { background: #e9f6ed; color: #155b35; }
+.feedback.erro { background: #fff0ed; color: #812b27; }
+.pontos-ao-vivo { margin: 0; color: #705d59; }
+.pontos-ao-vivo strong { color: var(--cor); }
+#painel-placar { padding: 16px; }
+@media (max-width: 380px) { .jogo { padding-left: 10px; padding-right: 10px; gap: 10px; } .topo, .tela { padding: 14px; } .opcao { min-height: 50px; } }
